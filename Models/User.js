@@ -9,23 +9,16 @@ const userSchema = new Schema(
         required: true,
         unique: true,
         trim: true
-    }
-  }
+    },
+    email: {
+      type: String,
+      required: true,
+      match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+      unique: true
+    },
+    thoughts: [thoughtsSchema]
+  },
 );
 
-const emailSchema = new mongoose.Schema({
-  title: { type: String, required: true, match: /.+\@.+\..+/, unique: true },
-});
-await emailSchema.create([
-  { email: "gmail@google.com" },
-  { email: "bill@microsoft.com" },
-  { email: "test@gmail.com" },
-]);
-await emailSchema.init();
-try {
-  await emailSchema.create({ email: "gmail@google.com" });
-} catch (error) {
-  error.message; 
-}
-thoughts: [thoughtsSchema]
+
 
