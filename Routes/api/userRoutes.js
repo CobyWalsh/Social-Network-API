@@ -3,8 +3,6 @@ const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/UserController');
 
-// Existing user routes...
-
 // POST to add a new friend
 router.post('/api/users/:userId/friends/:friendId', UserController.addFriend);
 
