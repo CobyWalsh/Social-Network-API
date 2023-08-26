@@ -17,22 +17,21 @@ const userSchema = new Schema(
       unique: true
     },
     thoughts: [{
-      type: Schema.Type.ObjectId,
-      ref: 'thoughts' // This refers to the 'Thoughts' model
+      type: Schema.Types.ObjectId,
+      ref: 'Thoughts' // This refers to the 'Thoughts' model
     }],
-    user, [{
-      type: Schema.Type.ObjectId,
-      ref: 'user' 
-    }]
-  
+    friends: [{
+      type: Schema.Types.ObjectId,
+      ref: 'User' 
+        }]
+      }
+    );
     // Create a virtual property `commentCount` that gets the amount of comments per user
-    postSchema.virtual('friendtCount').get(function () {
+    userSchema.virtual('friendCount').get(function () {
       return this.friends.length;
-    })
+    
 });
 
-  
+const User = model('User', userSchema);
 
-
-
-
+module.exports = User;  
