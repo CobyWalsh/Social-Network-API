@@ -1,0 +1,27 @@
+const {Schema, model} = require("mongoose");
+
+const thoughtsSchema = new Schema (
+    {
+        thoughtText: {
+             type: String,
+             requred: true,
+             minlength: 1,
+             maxlenth: 280,
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now, // Sets the default value to the current timestamp
+        },
+
+        thoughtsSchema.virtual('formattedCreatedAt').get(function() {
+            return this.createdAt.toLocaleString(); // You can format the timestamp however you like
+          }),
+         username: {
+            type: String,
+            required: true,
+         } 
+    }
+);
+const Thoughts = model('Thoughts', thoughtsSchema);
+
+module.exports = Thoughts;
