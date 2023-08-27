@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Thought = require('../models/Thought'); // Make sure you import your Thought model
+const Thought = require('../Models/Thought'); // Make sure you import your Thought model
 
 // POST to create a reaction within a thought's reactions array field
 router.post('/api/thoughts/:thoughtId/reactions', async (req, res) => {
