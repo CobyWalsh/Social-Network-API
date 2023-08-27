@@ -5,6 +5,7 @@ const Thought = require('../../Models/Thoughts');
 
 // GET all users
 router.get('/api/users', async (req, res) => {
+    console.log('GET all users route hit');
   try {
     const users = await User.find();
     res.json(users);
