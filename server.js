@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // Import your API route files
-const userRoutes = require('./Routes/api/userRoutes');
+const users = require('./Routes/api/users');
 const thoughtRoutes = require('./Routes/api/thoughts');
 const reactionRoutes = require('./Routes/api/reactionRoutes');
 
@@ -32,7 +32,7 @@ db.on('error', (error) => {
 app.use(express.json());
 
 // Use your API route files
-app.use(userRoutes);
+app.use(users);
 app.use(thoughtRoutes);
 app.use(reactionRoutes);
 
