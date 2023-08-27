@@ -4,7 +4,7 @@ const {Schema, model} = require("mongoose");
 // The userSchema defines the schema of the subdocument
 const userSchema = new Schema(
   { 
-    userName: {
+    username: {
         type: String,
         required: true,
         unique: true,

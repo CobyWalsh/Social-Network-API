@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Thought = require('../../Models/Thoughts'); 
+const Thought = require('../../Models/Thought'); 
 const User = require('../../Models/User'); // Import the User model to update user's thoughts array
 
 // GET all thoughts
@@ -35,6 +35,7 @@ router.post('/api/thoughts', async (req, res) => {
     const newThought = new Thought({
       thoughtText,
       username,
+      userId,
     });
 
     const savedThought = await newThought.save();
