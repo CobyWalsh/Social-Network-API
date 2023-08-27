@@ -32,6 +32,7 @@ router.get('/api/users/:id', async (req, res) => {
 
 // POST a new user
 router.post('/api/users', async (req, res) => {
+    console.log(req.body);
   try {
     const { username, email } = req.body;
     const newUser = new User({
@@ -39,7 +40,9 @@ router.post('/api/users', async (req, res) => {
       email,
     });
     const savedUser = await newUser.save();
+    console.log(newUser,'this is new user');
     res.json(savedUser);
+    console.log(savedUser,'this is a saved user');
   } catch (error) {
     res.status(500).json({ error: 'Error creating user' });
   }
