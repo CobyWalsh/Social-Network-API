@@ -4,18 +4,28 @@ const app = express();
 
 // Import your API route files
 const userRoutes = require('./Routes/api/userRoutes');
-const thoughtRoutes = require('./routes/thoughtRoutes');
-const reactionRoutes = require('./routes/reactionRoutes');
+const thoughtRoutes = require('./Routes/api/thoughts');
+const reactionRoutes = require('./Routes/api/reactionRoutes');
 
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/your-database-name';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/social-network-api';
 
 // Connect to MongoDB
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true,
+  // useFindAndModify: false, 
+  // useCreateIndex: true,
+});
+
+const db = mongoose.connection;
+
+db.once('open', () => {
+  console.log('Connected to MongoDB database.');
+});
+
+db.on('error', (error) => {
+  console.error('MongoDB connection error:', error);
 });
 
 // Middleware

@@ -1,4 +1,4 @@
-const { Schema } = require("mongoose");
+const { Schema, Mongoose } = require("mongoose");
 
 const reactionSchema = new Schema({
   reactionId: {
@@ -20,9 +20,11 @@ const reactionSchema = new Schema({
   },
 });
 
+const Reaction = ('Reaction', reactionSchema);
+
 // Define a virtual called 'formattedCreatedAt'
-reactionSchema.virtual('formattedCreatedAt').get(function() {
+Reaction.virtual('formattedCreatedAt').get(function() {
   return this.createdAt.toLocaleString(); // You can format the timestamp however you like
 });
 
-module.exports = reactionSchema;
+module.exports = Reaction;

@@ -1,7 +1,7 @@
 const {Schema, model} = require("mongoose");
 // const thoughtsSchema = require('./Thoughts');
 
-// The userNameSchema defines the schema of the subdocument
+// The userSchema defines the schema of the subdocument
 const userSchema = new Schema(
   { 
     userName: {

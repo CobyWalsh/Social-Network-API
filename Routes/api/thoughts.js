@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Thought = require('../Models/Thought'); 
-const User = require('../Models/User'); // Import the User model to update user's thoughts array
+const Thought = require('../../Models/Thoughts'); 
+const User = require('../../Models/User'); // Import the User model to update user's thoughts array
 
 // GET all thoughts
 router.get('/api/thoughts', async (req, res) => {
