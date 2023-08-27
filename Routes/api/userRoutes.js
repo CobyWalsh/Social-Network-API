@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../Models/User'); // Make sure you import your User model
+const User = require('../Models/User'); 
 
 // POST to add a new friend to a user's friend list
 router.post('/api/users/:userId/friends/:friendId', async (req, res) => {

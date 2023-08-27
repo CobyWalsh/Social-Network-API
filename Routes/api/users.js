@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../Models/User');
-const Thought = require('../Models/Thoughts'); // Make sure you import your Thought model
+const Thought = require('../Models/Thoughts'); 
 
 // GET all users
 router.get('/api/users', async (req, res) => {
@@ -63,7 +63,7 @@ router.put('/api/users/:id', async (req, res) => {
 router.delete('/api/users/:id', async (req, res) => {
   try {
     const userId = req.params.id;
-    // Remove associated thoughts (BONUS)
+    // Remove associated thoughts 
     await Thought.deleteMany({ username: userId });
     // Remove the user
     await User.findByIdAndRemove(userId);
