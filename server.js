@@ -8,7 +8,7 @@ const thoughtRoutes = require('./Routes/api/thoughts');
 const reactionRoutes = require('./Routes/api/reactionRoutes');
 
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/social-network-api';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/social-network-api2';
 
 // Connect to MongoDB
 mongoose.connect(MONGODB_URI, {

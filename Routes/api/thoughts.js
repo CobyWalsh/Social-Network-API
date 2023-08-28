@@ -29,6 +29,7 @@ router.get('/api/thoughts/:id', async (req, res) => {
 
 // POST a new thought
 router.post('/api/thoughts', async (req, res) => {
+  console.log('in thought post route')
   try {
     const { thoughtText, username, userId } = req.body;
 
@@ -37,6 +38,7 @@ router.post('/api/thoughts', async (req, res) => {
       username,
       userId,
     });
+   
 
     const savedThought = await newThought.save();
 
@@ -47,6 +49,7 @@ router.post('/api/thoughts', async (req, res) => {
 
     res.json(savedThought);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: 'Error creating thought' });
   }
 });
