@@ -16,6 +16,7 @@ router.get('/api/users', async (req, res) => {
 
 // GET a single user by _id and populate thought and friend data
 router.get('/api/users/:id', async (req, res) => {
+  console.log(req.body);
   try {
     const userId = req.params.id;
     const user = await User.findById(userId)
@@ -26,6 +27,7 @@ router.get('/api/users/:id', async (req, res) => {
     }
     res.json(user);
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: 'Error fetching user' });
   }
 });
