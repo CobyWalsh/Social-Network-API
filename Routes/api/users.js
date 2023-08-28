@@ -35,6 +35,7 @@ router.post('/api/users', async (req, res) => {
     console.log(req.body);
   try {
     const { username, email } = req.body;
+    console.log('Creating user:', username, email);
     const newUser = new User({
       username,
       email,
@@ -44,6 +45,7 @@ router.post('/api/users', async (req, res) => {
     res.json(savedUser);
     console.log(savedUser,'this is a saved user');
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: 'Error creating user' });
   }
 });
